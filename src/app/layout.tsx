@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 
-import { Inter } from "next/font/google";
-
 import "./globals.css";
-import ReduxProvider from "@/redux/provider/provider";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
+import { ThemeProvider } from "@mui/material";
 
-const inter = Inter({ subsets: ["latin"] });
+import ReduxProvider from "@/redux/provider/provider";
+import theme from "@/theme/theme";
 
 export const metadata: Metadata = {
     title: "Create Next App",
@@ -19,8 +19,12 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={inter.className}>
-                <ReduxProvider>{children}</ReduxProvider>
+            <body>
+                <AppRouterCacheProvider options={{ enableCssLayer: true }}>
+                    <ThemeProvider theme={theme}>
+                        <ReduxProvider>{children}</ReduxProvider>
+                    </ThemeProvider>
+                </AppRouterCacheProvider>
             </body>
         </html>
     );
