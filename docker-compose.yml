@@ -2,7 +2,7 @@ version: "3"
 
 services:
     next-app:
-        container_name: english-toeic-frontend
+        container_name: nextjs-template
         build:
             context: ./
             target: runner
@@ -15,4 +15,4 @@ services:
         environment:
             - NODE_ENV=production
         networks:
-            - english-toeic-network
+            - default
