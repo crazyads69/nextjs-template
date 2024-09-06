@@ -141,6 +141,8 @@ module.exports = {
                 next: ["const", "let", "var"],
             },
         ],
+        "no-shadow": "off",
+        "react/require-default-props": "off",
     },
     settings: {
         "import/resolver": {
